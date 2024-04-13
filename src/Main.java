@@ -13,8 +13,8 @@ public class Main {
         String sinopsis = """
                 Matrix es una paradoja
                 La mejor película del fin del milenio
-                Fue lanzada en: 
-                """ + fechaDeLanzamiento;
+                Fue lanzada en: %d 
+                """.formatted(fechaDeLanzamiento);
         System.out.println(sinopsis);
     }
 }
