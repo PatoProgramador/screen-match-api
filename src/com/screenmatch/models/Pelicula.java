@@ -8,6 +8,38 @@ public class Pelicula {
     private double sumaDeEvaluaciones;
     private int totalEvaluaciones;
 
+    public void setNombre(String unNombre) {
+        this.nombre = unNombre;
+    }
+
+    public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
+
+    public void setDuracionEnMinutos(int duracionEnMinutos) {
+        this.duracionEnMinutos = duracionEnMinutos;
+    }
+
+    public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
+        this.incluidoEnElPlan = incluidoEnElPlan;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getFechaDeLanzamiento() {
+        return fechaDeLanzamiento;
+    }
+
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
+
+    public boolean isIncluidoEnElPlan() {
+        return incluidoEnElPlan;
+    }
+
     public int getTotalEvaluaciones() {
         return totalEvaluaciones;
     }
