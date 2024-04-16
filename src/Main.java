@@ -9,5 +9,6 @@ public class Main {
         miPeli.evalua(7.8);
         miPeli.evalua(10);
         System.out.println(miPeli.calcularMedia());
+        System.out.println(miPeli.getTotalEvaluaciones());
     }
 }
