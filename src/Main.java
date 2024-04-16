@@ -1,3 +1,4 @@
+import com.screenmatch.calculations.CalculadoreDeTiempo;
 import com.screenmatch.models.Pelicula;
 import com.screenmatch.models.Serie;
 
@@ -22,5 +23,10 @@ public class Main {
         casaDragon.setMinutosPorEpisodio(50);
         casaDragon.setEpisodiosPorTemporada(10);
         casaDragon.muestraFichaTecnnica();
+
+        CalculadoreDeTiempo calculadora = new CalculadoreDeTiempo();
+        calculadora.incluye(miPeli);
+        calculadora.incluye(casaDragon);
+        System.out.println("Tiempo necesario para ver tus titulos favoritos estas  es de " + calculadora.getTiempoTotal() + " minutos");
     }
 }
