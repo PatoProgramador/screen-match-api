@@ -5,7 +5,10 @@ public class Main {
         miPeli.fechaDeLanzamiento = 1994;
         miPeli.duracionEnMinutos = 120;
 
-        System.out.println("Mi pelicula es: "+ miPeli.nombre);
-        System.out.println("Su fecha de lanzamiento es: "+ miPeli.fechaDeLanzamiento);
+        miPeli.muestraFichaTecnnica();
+        miPeli.evalua(7.8);
+        miPeli.evalua(10);
+        System.out.println(miPeli.sumaDeEvaluaciones);
+        System.out.println(miPeli.calcularMedia());
     }
 }
