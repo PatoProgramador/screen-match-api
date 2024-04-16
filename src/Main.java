@@ -38,7 +38,7 @@ public class Main {
         episodio.setNombre("La casa Targayen");
         episodio.setNumero(1);
         episodio.setSerie(casaDragon);
-        episodio.setTotalVisualizaciones(300);
+        episodio.setTotalVisualizaciones(50);
 
         filtroRecomendacion.filtrar(episodio);
     }
