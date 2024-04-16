@@ -1,5 +1,7 @@
 package com.screenmatch.models;
 
+import com.screenmatch.calculations.Clasificable;
+
 public class Serie extends Titulo {
     private int temporadas;
     private int episodiosPorTemporada;

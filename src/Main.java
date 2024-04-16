@@ -1,4 +1,6 @@
 import com.screenmatch.calculations.CalculadoreDeTiempo;
+import com.screenmatch.calculations.FiltrarRecomendaciones;
+import com.screenmatch.models.Episodio;
 import com.screenmatch.models.Pelicula;
 import com.screenmatch.models.Serie;
 
@@ -28,5 +30,16 @@ public class Main {
         calculadora.incluye(miPeli);
         calculadora.incluye(casaDragon);
         System.out.println("Tiempo necesario para ver tus titulos favoritos estas  es de " + calculadora.getTiempoTotal() + " minutos");
+
+        FiltrarRecomendaciones filtroRecomendacion = new FiltrarRecomendaciones();
+        filtroRecomendacion.filtrar(miPeli);
+
+        Episodio episodio = new Episodio();
+        episodio.setNombre("La casa Targayen");
+        episodio.setNumero(1);
+        episodio.setSerie(casaDragon);
+        episodio.setTotalVisualizaciones(300);
+
+        filtroRecomendacion.filtrar(episodio);
     }
 }
