@@ -5,6 +5,7 @@ import com.screenmatch.models.Serie;
 import com.screenmatch.models.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainWithLists {
     public static void main(String[] args) {
@@ -25,5 +26,17 @@ public class MainWithLists {
                 System.out.println(pelicula.getClasificacion());
             }
         }
+
+        ArrayList<String> listaDeArtistas = new ArrayList<>();
+        listaDeArtistas.add("Penepole Cruz");
+        listaDeArtistas.add("Antonio Banderas");
+        listaDeArtistas.add("Ricardo Darin");
+
+        System.out.println("Lista de artistas no ordenada: "+ listaDeArtistas);
+        Collections.sort(listaDeArtistas);
+        System.out.println("Lista de artistas ordenada: "+ listaDeArtistas);
+
+        Collections.sort(lista);
+        System.out.println("Lista ordenada de titulos: " + lista);
     }
 }
