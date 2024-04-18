@@ -1,3 +1,5 @@
+package com.screenmatch.main;
+
 import com.screenmatch.calculations.CalculadoreDeTiempo;
 import com.screenmatch.calculations.FiltrarRecomendaciones;
 import com.screenmatch.models.Episodio;
@@ -8,9 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Pelicula miPeli = new Pelicula();
-        miPeli.setNombre("The shawshank redemption");
-        miPeli.setFechaDeLanzamiento(1994);
+        Pelicula miPeli = new Pelicula("The shawshank redemption", 1994);
         miPeli.setDuracionEnMinutos(120);
         miPeli.setIncluidoEnElPlan(true);
 
@@ -20,9 +20,7 @@ public class Main {
         System.out.println(miPeli.calcularMedia());
         System.out.println(miPeli.getTotalEvaluaciones());
 
-        Serie casaDragon = new Serie();
-        casaDragon.setNombre("La casa del dragón");
-        casaDragon.setFechaDeLanzamiento(2022);
+        Serie casaDragon = new Serie("La casa del dragón", 2022);
         casaDragon.setTemporadas(1);
         casaDragon.setMinutosPorEpisodio(50);
         casaDragon.setEpisodiosPorTemporada(10);
@@ -44,10 +42,8 @@ public class Main {
 
         filtroRecomendacion.filtrar(episodio);
 
-        Pelicula peliculaDePato = new Pelicula();
-        peliculaDePato.setNombre("El señor de los anillos");
+        Pelicula peliculaDePato = new Pelicula("El señor de los anillos", 2001);
         peliculaDePato.setDuracionEnMinutos(180);
-        peliculaDePato.setFechaDeLanzamiento(2001);
 
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
         listaDePeliculas.add(miPeli);
