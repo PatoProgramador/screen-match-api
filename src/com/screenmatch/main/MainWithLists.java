@@ -4,8 +4,7 @@ import com.screenmatch.models.Pelicula;
 import com.screenmatch.models.Serie;
 import com.screenmatch.models.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class MainWithLists {
     public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class MainWithLists {
         peliculaDePato.evalua(6);
         Serie casaDragon = new Serie("La casa del dragón", 2022);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(miPeli);
         lista.add(peliculaDePato);
         lista.add(casaDragon);
@@ -32,11 +31,14 @@ public class MainWithLists {
         listaDeArtistas.add("Antonio Banderas");
         listaDeArtistas.add("Ricardo Darin");
 
-        System.out.println("Lista de artistas no ordenada: "+ listaDeArtistas);
+        System.out.println("Lista de artistas no ordenada: " + listaDeArtistas);
         Collections.sort(listaDeArtistas);
-        System.out.println("Lista de artistas ordenada: "+ listaDeArtistas);
+        System.out.println("Lista de artistas ordenada: " + listaDeArtistas);
 
         Collections.sort(lista);
         System.out.println("Lista ordenada de titulos: " + lista);
+
+        lista.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+        System.out.println("Lista ordenada por fecha: " + lista);
     }
 }
