@@ -1,7 +1,10 @@
 package com.screenmatch.main;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.screenmatch.models.Titulo;
+import com.screenmatch.models.TituloOMDB;
 
 import java.io.IOException;
 import java.net.URI;
@@ -19,20 +22,34 @@ public class MainWithSearch {
         String apiKey = System.getenv("OMDB-API-KEY");
 
         String url = "https://www.omdbapi.com/?t=" + search +"&apikey=" + apiKey;
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .build();
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .build();
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+            String json = response.body();
+            System.out.println(json);
 
-        String json = response.body();
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                    .create();
 
-        System.out.println(json);
+            TituloOMDB miTituloOmdb = gson.fromJson(json, TituloOMDB.class);
+            System.out.println(miTituloOmdb);
 
-        Gson gson = new Gson();
-        Titulo miTitulo = gson.fromJson(json, Titulo.class);
-        System.out.println(miTitulo);
+            Titulo miTitulo = new Titulo(miTituloOmdb);
+            System.out.println("Titulo convertido: " + miTitulo);
+        } catch (NumberFormatException error) {
+            System.out.println("Ocurrio un error: ");
+            System.out.println(error.getMessage());
+        } catch (IllegalArgumentException error) {
+            System.out.println("Error en la URI, verifique la dirección");
+        } catch (Exception error) {
+            System.out.println("Ocurrio un error inesperado");
+        }
+        System.out.println("Finalizó la ejecución del programa");
     }
 }
