@@ -7,6 +7,7 @@ import com.screenmatch.exceptions.ErrorEnConversionDeDuracionException;
 import com.screenmatch.models.Titulo;
 import com.screenmatch.models.TituloOMDB;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -45,6 +46,10 @@ public class MainWithSearch {
 
             Titulo miTitulo = new Titulo(miTituloOmdb);
             System.out.println("Titulo convertido: " + miTitulo);
+
+            FileWriter escritura = new FileWriter("peliculas.txt");
+            escritura.write(miTitulo.toString());
+            escritura.close();
         } catch (NumberFormatException error) {
             System.out.println("Ocurrio un error: ");
             System.out.println(error.getMessage());
