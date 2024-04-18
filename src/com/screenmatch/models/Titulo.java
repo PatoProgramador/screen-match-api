@@ -4,9 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.screenmatch.exceptions.ErrorEnConversionDeDuracionException;
 
 public class Titulo implements Comparable<Titulo> {
-    @SerializedName("Title")
     private String nombre;
-    @SerializedName("Year")
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
     private boolean incluidoEnElPlan;
@@ -86,7 +84,7 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "nombre=" + nombre + ", fecha de lanzamiento=" + fechaDeLanzamiento +
-                ", duracion=" + duracionEnMinutos;
+        return "(nombre=" + nombre + ", fecha de lanzamiento=" + fechaDeLanzamiento +
+                ", duracion=" + duracionEnMinutos+")";
     }
 }
